@@ -17,4 +17,4 @@ jobs:
         shell: bash
         run: |
           dotnet test --verbosity normal | tee resultado-testes.log
-          echo "::notice title=Resultado dos testes::$(grep -E 'Passed!|Failed!' resultado-testes.log | head -1)"
+          echo "::notice title=Resultado dos testes::$(tail -n 8 resultado-testes.log | tr '\n' ' ')"
